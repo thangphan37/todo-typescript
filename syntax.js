@@ -129,9 +129,39 @@ var TextBox = /** @class */ (function (_super) {
     TextBox.prototype.select = function () { };
     return TextBox;
 }(Control));
-var tet = new Control();
-console.log("tet", tet);
-var text1 = new TextBox();
-console.log("text111", text1.select());
-var text2 = new Button();
-console.log("text111", text2.select());
+function buildName(firstName) {
+    var restOfName = [];
+    for (var _i = 1; _i < arguments.length; _i++) {
+        restOfName[_i - 1] = arguments[_i];
+    }
+    return firstName + " " + restOfName.join("");
+}
+var employeeName = buildName("Joseph", "Samuel", "Lucas", "MacKinzie");
+console.log("employeeName", employeeName);
+var deck = {
+    suits: ["hearts", "spades", "clubs", "diamonds"],
+    cards: Array(52),
+    createCardPicker: function () {
+        var _this = this;
+        return function () {
+            var pickedCard = Math.floor(Math.random() * 52);
+            var pickedSuit = Math.floor(pickedCard / 13);
+            return { suit: _this.suits[pickedSuit], card: pickedCard % 13 };
+        };
+    }
+};
+var cardPicker = deck.createCardPicker();
+var pickedCard = cardPicker();
+function indentity(arg) {
+    return arg;
+}
+var output = indentity(5);
+console.log("output lalalala:", output);
+var FileAccess;
+(function (FileAccess) {
+    FileAccess[FileAccess["None"] = 0] = "None";
+    FileAccess[FileAccess["Read"] = 2] = "Read";
+    FileAccess[FileAccess["Write"] = 4] = "Write";
+})(FileAccess || (FileAccess = {}));
+console.log("enum:", FileAccess.Read);
+console.log("EnumTest", EnumTest);

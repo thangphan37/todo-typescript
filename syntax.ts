@@ -149,3 +149,59 @@ class Button extends Control implements SelectableControl {
 class TextBox extends Control {
   select() {}
 }
+
+function buildName(firstName: string, ...restOfName: string[]) {
+  return firstName + " " + restOfName.join("");
+}
+
+let employeeName = buildName("Joseph", "Samuel", "Lucas", "MacKinzie");
+console.log("employeeName", employeeName);
+
+interface Card {
+  suit: string;
+  card: number;
+}
+
+interface Deck {
+  suits: string[];
+  cards: number[];
+  createCardPicker(this: Deck): () => Card;
+}
+
+let deck: Deck = {
+  suits: ["hearts", "spades", "clubs", "diamonds"],
+  cards: Array(52),
+  createCardPicker: function(this: Deck) {
+    return () => {
+      let pickedCard = Math.floor(Math.random() * 52);
+      let pickedSuit = Math.floor(pickedCard / 13);
+
+      return { suit: this.suits[pickedSuit], card: pickedCard % 13 };
+    };
+  }
+};
+
+let cardPicker = deck.createCardPicker();
+let pickedCard = cardPicker();
+
+function indentity<T>(arg: T): T {
+  return arg;
+}
+
+let output = indentity(5);
+console.log("output lalalala:", output);
+
+enum FileAccess {
+  None,
+  Read = 1 << 1,
+  Write = 1 << 2
+}
+console.log("enum:", FileAccess.Read);
+
+declare enum EnumTest {
+  A,
+  D,
+  F
+}
+
+console.log("EnumTest", EnumTest);
