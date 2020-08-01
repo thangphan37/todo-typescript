@@ -56,3 +56,6 @@ var todo = toggleTodo({ id: 3, text: "thang", done: true });
 console.log("todo", todo);
 var completeTodos = completeAll([{ id: 1, text: "thang1", done: false }]);
 console.log("completeTodos", completeTodos);
+var a = "okmen";
+var b = { Name: "odododo" };
+console.log("b.Name", b.Name);

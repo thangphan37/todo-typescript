@@ -62,3 +62,16 @@ const todo = toggleTodo({ id: 3, text: "thang", done: true });
 console.log("todo", todo);
 const completeTodos = completeAll([{ id: 1, text: "thang1", done: false }]);
 console.log("completeTodos", completeTodos);
+//Compare Alias with Interface
+//Inteface ko thể gán trực tiếp kiểu string như Name
+type Name = string;
+
+interface OK {
+  Name: string;
+}
+
+type Other = Name;
+
+let a: Name = "okmen";
+let b: OK = { Name: "odododo" };
+console.log("b.Name", b.Name);

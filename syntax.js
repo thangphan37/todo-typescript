@@ -164,4 +164,3 @@ var FileAccess;
     FileAccess[FileAccess["Write"] = 4] = "Write";
 })(FileAccess || (FileAccess = {}));
 console.log("enum:", FileAccess.Read);
-console.log("EnumTest", EnumTest);

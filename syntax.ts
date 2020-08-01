@@ -198,10 +198,9 @@ enum FileAccess {
 }
 console.log("enum:", FileAccess.Read);
 
-declare enum EnumTest {
-  A,
-  D,
-  F
+type Alias = { num: number };
+interface Interface {
+  num: number;
 }
-
-console.log("EnumTest", EnumTest);
+declare function aliased(arg: Alias): Alias;
+declare function interfaced(arg: Interface): Interface;
