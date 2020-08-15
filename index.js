@@ -19,38 +19,44 @@
  *Readonly<...> setup tất cả property ->readonly.Cú pháp này là mapped types;
  *Khai báo 1 type có property cụ thể -> literal types;
  *Vì Todo và CompletedTodo phần khai báo id,text same -> use intersection types;
+ *Generic hơn any ở điểm return set đc type cụ thể <> trong bracket là interface.
+ *--esModuleInterop: gíup chúng ta có thể import module theo kiểu es6 mà ko cần flag * vì khi compiled tạo ra object default tương thích vs export default trong compile typescript
  */
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
+var __assign =
+  (this && this.__assign) ||
+  function() {
+    __assign =
+      Object.assign ||
+      function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
+          s = arguments[i];
+          for (var p in s)
+            if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
         }
         return t;
-    };
+      };
     return __assign.apply(this, arguments);
-};
+  };
 function completeAll(todos) {
-    return todos.map(function (todo) { return (__assign(__assign({}, todo), { done: true })); });
+  return todos.map(function(todo) {
+    return __assign(__assign({}, todo), { done: true });
+  });
 }
 function placeToString(place) {
-    if (place === "home") {
-        return "Home";
-    }
-    else if (place === "work") {
-        return "Work";
-    }
-    else {
-        return place.custom;
-    }
+  if (place === "home") {
+    return "Home";
+  } else if (place === "work") {
+    return "Work";
+  } else {
+    return place.custom;
+  }
 }
 function toggleTodo(todo) {
-    return {
-        id: todo.id,
-        text: todo.text,
-        done: !todo.done
-    };
+  return {
+    id: todo.id,
+    text: todo.text,
+    done: !todo.done
+  };
 }
 var todo = toggleTodo({ id: 3, text: "thang", done: true });
 console.log("todo", todo);
